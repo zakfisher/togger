@@ -1,25 +1,18 @@
+Template.Login.helpers({
+  title: 'Togger Login'
+})
 
+Template.Login.events({
+  'submit form': (e) => {
+    e.preventDefault()
+    var email = $('#email-input').val()
+    var password = $('#password-input').val()
+    var credentials = {
+      email: email,
+      password: password
+    }
+    console.log(credentials)
+  }
+})
 
-// if (Meteor.isClient) {
-//   // counter starts at 0
-//   Session.setDefault('counter', 0);
-
-//   Template.hello.helpers({
-//     counter: function () {
-//       return Session.get('counter');
-//     }
-//   });
-
-//   Template.hello.events({
-//     'click button': function () {
-//       // increment the counter when button is clicked
-//       Session.set('counter', Session.get('counter') + 1);
-//     }
-//   });
-// }
-
-// if (Meteor.isServer) {
-//   Meteor.startup(function () {
-//     // code to run on server at startup
-//   });
-// }
+console.log(123)
