@@ -1,0 +1,41 @@
+html,
+body,
+.hammer-touch-area,
+#login {
+  height: 100%;
+}
+
+#login {
+  text-align: center;
+
+  .carousel,
+  .carousel-inner,
+  .item {
+    height: 100%;
+  }
+
+  .carousel-control {
+    background: none;
+  }
+
+  .carousel-indicators li {
+    background: #ccc;
+
+    &.active {
+      background: black;
+    }
+  }
+
+  .page-header {
+    border: none;
+  }
+}
+
+#login-buttons {
+  position: fixed;
+  bottom: 20%;
+  // zoom: 1.5;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
