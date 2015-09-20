@@ -14,3 +14,5 @@ Template.Login.events({
     console.log(credentials)
   }
 })
+
+console.log(123)
