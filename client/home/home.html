@@ -1,3 +1,69 @@
 <template name="Home">
-  <h1>Welcome to Togger!</h1>
+
+  {{>nav}}
+  {{>message}}
+  {{>stylist name ="Tina Fisher" numStars='5' numReviews='120 Reviews' src='http://zaoyangnews.com/wp-content/uploads/2014/07/portrait-of-a-fashion-stylist.jpg'}}
+  {{>stylist name ="Kristina Smith" numStars='4.8' numReviews='90 Reviews'  src='http://fashiondegreelink.com/sites/fashiondegreelink.com/files/styles/large/public/field/image/How%20to%20Become%20A%20Personal%20Stylist.jpg?itok=1c7qu8H2'}}
+  {{>stylist name ="Lynn Wang"  numStars='5' numReviews='50 Reviews'  src = 'http://en.mompark.hu/upload/images/MPS/mom%20park%20stylist%205.jpg'}}
+  {{>stylist name ="Lucy Bernard" numStars='5' numReviews='Rising Star'  src = 'http://www.tresemme.com/Images/1338/1338-353391-rticle_our_stylists_jenie_syfu_620x375.png'}}
+		
+
+</template>
+
+<template name='nav'>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      	<a class="navbar-brand" href="#">Togger</a>
+   
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        {{#if currentUser}}
+        	<li class="active"><a href="#">My Profile <span class="sr-only">(current)</span></a></li>
+        	<li class="active"><a href="#">Sign Out <span class="sr-only"></span></a></li>
+        	<!-- /Need to finish Sign in and Sign out DW -->
+        {{else}}
+        	<li class="active"><a href="#">Sign In <span class="sr-only">(current)</span></a></li>
+        {{/if}}
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</template>
+
+<template name='message'>
+	<div class='row msg'>
+		<div class="col-md-12">
+			<p class="text-center">
+				Get advice from a stylist now
+			</p>
+		</div>
+	</div>
+</template>
+
+<template name = 'stylist'>
+	<div class="row">
+		<div class="col-md-3 col-xs-3">
+			<div style = 'background-image: url({{src}})' class="stylistImg top-row"></div>
+		</div>
+		<div class="col-md-6 col-xs-5">
+			<div class="row top-row">Tina Fisher</div>
+			<div class="row"> {{numStars}} <img src="http://simpleicon.com/wp-content/uploads/star.png" class="icon">  {{numReviews}} </div>
+			<div class="row"> <span class="stylistRel">You enjoyed working with Tina</span></div>
+		</div>
+		<div class="col-md-1 col-xs-1">
+			<button class="btn btn-default requestBtn"> Request</button>
+		</div>
+	</div>
+	
 </template>

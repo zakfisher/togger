@@ -24,3 +24,11 @@
 //     // code to run on server at startup
 //   });
 // }
+
+Template.stylist.helpers({
+	'rising':(numReviews) => {
+		console.log(this.hash.numRevieww);
+		if (numReviews =='Rising Star') return true;
+		else return false;
+	}
+});

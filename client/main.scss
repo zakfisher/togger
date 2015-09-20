@@ -3,3 +3,38 @@ h1 {
   // font-weight: 300;
   color: purple;
 }
+
+.msg{
+	background-color: black;
+	color: white;
+	padding-top:10px;
+}
+
+.stylistImg{
+	background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+ 	margin-left: 10px;
+}
+
+.requestBtn{
+	margin:18px;
+}
+
+.stylistRel{
+	font-style: italic;
+	font-size: 0.8em;
+	color: #aaaaaa;
+}
+
+.top-row{
+	margin-top:10px;
+}
+
+.icon{
+	height:20px;
+	padding-bottom: 5px;
+}
