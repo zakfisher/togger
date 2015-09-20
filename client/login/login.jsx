@@ -1,18 +1,25 @@
 Template.Login.helpers({
-  title: 'Togger Login'
-})
-
-Template.Login.events({
-  'submit form': (e) => {
-    e.preventDefault()
-    var email = $('#email-input').val()
-    var password = $('#password-input').val()
-    var credentials = {
-      email: email,
-      password: password
+  templateGestures: {
+    'swipeleft .item': (event, templateInstance) => {
+      $('#login').carousel('next')
+    },
+    'swiperight .item': (event, templateInstance) => {
+      $('#login').carousel('prev')
     }
-    console.log(credentials)
   }
+});
+
+Template.LoginScreen1.helpers({
+  title: 'Togger',
+  description: 'Live fashion feedback from stylist women'
 })
 
-console.log(123)
+Template.LoginScreen2.helpers({
+  title: 'Togger',
+  description: '$5 for 5 minutes'
+})
+
+Accounts.onLogin(() => {
+  console.log('Successfully logged in!')
+  Router.go('home')
+})
