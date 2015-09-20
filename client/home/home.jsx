@@ -1,34 +1,13 @@
-
-
-
-// if (Meteor.isClient) {
-//   // counter starts at 0
-//   Session.setDefault('counter', 0);
-
-//   Template.hello.helpers({
-//     counter: function () {
-//       return Session.get('counter');
-//     }
-//   });
-
-//   Template.hello.events({
-//     'click button': function () {
-//       // increment the counter when button is clicked
-//       Session.set('counter', Session.get('counter') + 1);
-//     }
-//   });
-// }
-
-// if (Meteor.isServer) {
-//   Meteor.startup(function () {
-//     // code to run on server at startup
-//   });
-// }
-
 Template.stylist.helpers({
-	'rising':(numReviews) => {
+	'rising': (numReviews) => {
 		console.log(this.hash.numRevieww);
-		if (numReviews =='Rising Star') return true;
+		if (numReviews == 'Rising Star') return true;
 		else return false;
 	}
 });
+
+Template.stylist.events({
+  'click .requestBtn': () => {
+    Router.go('payment')
+  }
+})

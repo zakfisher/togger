@@ -1,17 +1,6 @@
 Router.route('/', function() {
   document.title = 'Togger - Login'
   this.render('Login')
-
-
-  // $(document).ready(() => {
-  //   $('#login').carousel()
-  //   // $('#login').hammer().on('swipeleft', () => {
-  //   //   $('#login').carousel('next')
-  //   // })
-  //   // $('#login').hammer().on('swiperight', () => {
-  //   //   $('#login').carousel('prev')
-  //   // })
-  // })
 })
 
 Router.route('/home', function() {
@@ -27,6 +16,9 @@ document.title = 'Togger - Payment'
 Router.route('/connect', function() {
   document.title = 'Togger - Connect'
   this.render('Connect')
+  Meteor.setTimeout(() => {
+    Router.go('chat')
+  }, 1000)
 })
 
 Router.route('/chat', function() {
