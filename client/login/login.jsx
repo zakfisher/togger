@@ -9,16 +9,6 @@ Template.Login.helpers({
   }
 });
 
-Template.LoginScreen1.helpers({
-  title: 'Togger',
-  description: 'Live fashion feedback from stylist women'
-})
-
-Template.LoginScreen2.helpers({
-  title: 'Togger',
-  description: '$5 for 5 minutes'
-})
-
 Accounts.onLogin(() => {
   console.log('Successfully logged in!')
   Router.go('home')
