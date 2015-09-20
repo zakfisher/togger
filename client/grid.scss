@@ -1,0 +1,103 @@
+@import "bourbon/bourbon";
+
+$debug: true;
+
+// Columns
+$colCount: 12;
+$colWidth: 100% / $colCount;
+
+// Breakpoints
+$mobile: 0px;
+$tablet: 480px;
+$deskS:  768px;
+$deskM:  1024px;
+$deskL:  1280px;
+
+@mixin breakpoint($bp) {
+  @media all and (min-width: $bp) {
+    @content;
+  }
+}
+
+@mixin columns($prefix) {
+  $i: 1;
+  @while $i <= $colCount {
+    &.#{$prefix}-#{$i} { width: $colWidth * $i; }
+    $i: $i + 1;
+  }
+  &.#{$prefix}-20 { width: 20%; }
+}
+
+* {
+  @include appearance(none);
+  @include backface-visibility(visible);
+  box-sizing: border-box;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.wrap, col {
+  @include clearfix;
+  margin: 0 auto;
+  position: relative;
+}
+
+.wrap {
+  max-width: 1280px;
+  height: 100%;
+  width: 100%;
+}
+
+.col {
+  @include clearfix;
+  float: left;
+  position: relative;
+  margin: 0 auto;
+
+  @include breakpoint($mobile) {
+    @include columns('m');
+    &.hide-on-mobile { display: none !important; }
+    &.hide-on-tablet { display: none !important; }
+  }
+
+  @include breakpoint($tablet) {
+    @include columns('t');
+    &.hide-on-mobile,
+    &.hide-on-desktop { display: block !important; }
+    &.hide-on-tablet { display: none !important; }
+  }
+
+  @include breakpoint($deskS) {
+    @include columns('ds');
+    &.hide-on-desktop { display: none !important; }
+  }
+
+  @include breakpoint($deskM) {
+    @include columns('dm');
+    &.hide-on-desktop { display: none !important; }
+  }
+
+  @include breakpoint($deskL) {
+    @include columns('dl');
+    &.hide-on-desktop { display: none !important; }
+  }
+}
+
+@if $debug == true {
+  body {
+    &:before {
+      position: fixed;
+      left: 10px;
+      top: 10px;
+      z-index: 99;
+      color: orange;
+      font-size: 10px;
+      @include breakpoint($mobile) { content: 'mobile'; }
+      @include breakpoint($tablet) { content: 'tablet'; }
+      @include breakpoint($deskS)  { content: 'desktop small'; }
+      @include breakpoint($deskM)  { content: 'desktop medium'; }
+      @include breakpoint($deskL)  { content: 'desktop large'; }
+    }
+  }
+}

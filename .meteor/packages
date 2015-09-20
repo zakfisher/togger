@@ -7,3 +7,8 @@
 meteor-platform
 autopublish
 insecure
+iron:router
+grigio:babel
+fourseven:scss
+mquandalle:bower
+wolves:bourbon
